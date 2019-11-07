@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<script src="http://localhost:35729/livereload.js"></script>
+		<script type="module" src="components/gallery.js"></script>
+		<script type="module" src="pages/index.js"></script>
+		<style>
+			html, body {
+				margin: 0px;
+				padding: 0px;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+				--link-color: rgb(39, 119, 240);
+				--background: white;
+				--secondary-background: #f0f0f0;
+			}
+			a {
+				text-decoration: none;
+				color: var(--link-color);
+			}
+			a:visited {
+				color: inherit;
+				color: var(--link-color);
+			}
+			navbar {
+				background: var(--secondary-background);
+				width: 100%;
+				padding: 8px 0px;
+				padding-left: 24px;
+				display: block;
+				box-sizing: border-box;
+			}
+			navbar a {
+				margin: 0px 8px;
+			}
+			h1 {
+				margin: 0px;
+				padding: 8px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1><a href="/">Booru.ai</a></h1>
+		<navbar>
+			<a href="#" breasts>breasts</a>
+			<a href="#" naval>naval</a>
+		</navbar>
+		<booru-gallery query="">
+
+		</booru-gallery>
+	</body>
+</html>

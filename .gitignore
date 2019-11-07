@@ -1,0 +1,4 @@
+.vscode
+dist
+credentials.js
+node_modules

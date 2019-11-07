@@ -1,0 +1,23 @@
+{
+  "name": "booru.ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack --config webpack.config.js --watch",
+    "start": "node --experimental-modules index.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "danbooru": "^3.1.0-0",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "lit-element": "^2.1.0",
+    "lit-gallery": "file:./../lit-gallery",
+    "request": "^2.88.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-livereload-plugin": "^2.2.0"
+  }
+}

@@ -1,6 +1,6 @@
 import {LitElement, html} from 'lit-element';
 const Danbooru = require('danbooru');
-import 'lit-gallery';
+import './litGallery.js';
 
 class Gallery extends LitElement {
 	constructor(...args) {

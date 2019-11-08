@@ -7,7 +7,7 @@ booru = new Danbooru(`https://${credentials.login}:${credentials.api_key}@danboo
 
 
 booru.posts({ limit: 1, random: true }).then(async (gotPost) => {
-	post = gotPost;
+	$('booru-gallery')[0].posts = gotPost;
 });
 
 $(document).ready(_ => {
@@ -19,5 +19,4 @@ $(document).ready(_ => {
 	$('[naval]').click(_ => {
 		$('booru-gallery').attr('query', 'navel')
 	});
-	$('booru-gallery').attr('posts', post);
 });

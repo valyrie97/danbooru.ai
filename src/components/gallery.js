@@ -119,13 +119,11 @@ censored: ${this.censored(post.tag_string)}
 		else booru = new Danbooru();
 		let opt = {
 			tags: this.query || "rating:safe",
-			limit: 1,
-			random: true
+			limit: 200
 		};
 		
 		booru.posts(opt).then(async (posts) => {
 			this.currentQuery = query;
-			// console.log(posts)
 			this.posts = posts;
 			this.loading = false;
 		});

@@ -119,7 +119,8 @@ censored: ${this.censored(post.tag_string)}
 		else booru = new Danbooru();
 		let opt = {
 			tags: this.query || "rating:safe",
-			limit: 200,
+			limit: 1,
+			random: true
 		};
 		
 		booru.posts(opt).then(async (posts) => {

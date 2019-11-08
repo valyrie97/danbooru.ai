@@ -1,5 +1,14 @@
 import $ from 'jquery';
 import credentials from './../../credentials.js';
+const Danbooru = require('danbooru');
+let post;
+let booru;
+booru = new Danbooru(`https://${credentials.login}:${credentials.api_key}@danbooru.donmai.us`);
+
+
+booru.posts({ limit: 1, random: true }).then(async (gotPost) => {
+	$('booru-gallery')[0].posts = gotPost;
+});
 
 $(document).ready(_ => {
 	$('booru-gallery').attr('login', credentials.login)

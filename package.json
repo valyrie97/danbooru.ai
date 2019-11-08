@@ -26,6 +26,8 @@
     "serve": "^11.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.0",
-    "webpack-livereload-plugin": "^2.2.0"
+    "webpack-livereload-plugin": "^2.2.0",
+    "find-free-port": "^2.0.0",
+    "open": "^6.0.0"
   }
 }

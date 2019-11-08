@@ -1,6 +1,5 @@
 import {LitElement, html} from 'lit-element';
 const Danbooru = require('danbooru');
-import './litGallery.js';
 
 class Gallery extends LitElement {
 	constructor(...args) {
@@ -39,7 +38,7 @@ class Gallery extends LitElement {
 		// return html`<br/><pre>loli tag: ${post.tag_string.indexOf('loli') > -1}</pre><br/><pre>${post.file_url}</pre><br/>`;
 		if(post.file_url) {
 			return html`
-				<div class="item ${this.censored(post.tag_string) ? 'censored' : ''}" data-url="${post.preview_file_url}" aspect-ratio="${post.image_width / post.image_height}"></div>
+				<img src="${post.preview_file_url}" aspect-ratio="${post.image_width / post.image_height}"></img>
 			`;
 		} else {
 			console.warn('image consored, log in to view');
@@ -52,12 +51,8 @@ censored: ${this.censored(post.tag_string)}
 	}
 
 	render() {
-		console.log('render', this.posts.length, this.loading);
 		return html`
 			<style>
-				lit-gallery {
-					margin: 8px;
-				}
 				.status {
 					line-height: 40px;
 					margin: 0px auto;
@@ -67,7 +62,7 @@ censored: ${this.censored(post.tag_string)}
 					border: 4px solid red;
 				}
 			</style>
-			<lit-gallery height="150">
+			<div gallery>
 				${(_ => {
 					if(this.posts.length !== 0) {
 						return this.posts.map(this.renderPost.bind(this))
@@ -85,7 +80,7 @@ censored: ${this.censored(post.tag_string)}
 						`;
 					}
 				})()}
-			</lit-gallery>
+			</div>
 		`;
 	}
 

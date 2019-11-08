@@ -115,7 +115,6 @@ censored: ${this.censored(post.tag_string)}
 		let booru;
 		if(!this.login || !this.api_key) return;
 		if(this.login && this.api_key)
-			// booru = new Danbooru(`http://localhost:35/${this.login}:${this.api_key}@danbooru.donmai.us`);
 			booru = new Danbooru(`https://${this.login}:${this.api_key}@danbooru.donmai.us`);
 		else booru = new Danbooru();
 		let opt = {

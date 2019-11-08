@@ -1,4 +1,4 @@
 .vscode
-dist
+/dist
 credentials.js
 node_modules

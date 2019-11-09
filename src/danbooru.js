@@ -1,7 +1,8 @@
+console.log('%c%s', 'border-radius:5px;background-color:#333333;padding:1em 2em; margin: 1em', 'booru.ai THINGS');
+
 import credentials from './../credentials.js';
 import Danbooru from 'danbooru';
 let booru;
-console.log('##########################################')
 
 if(credentials.login && credentials.api_key) {
 	console.log('authenticated!')

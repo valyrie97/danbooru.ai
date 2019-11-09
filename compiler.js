@@ -40,6 +40,7 @@ function compile(filepath) {
 			entry: {
 				[name]: `./${filepath}`
 			},
+			watch: true,
 			output: {
 				filename: path.join(newpath, '[name].bundle.js')
 			},

@@ -7,8 +7,10 @@ const {copy,
 chokidar.watch('./src/**/*.js', {
 	persistent: true
 }).on('all', (evt, filepath) => {
-	console.log(`${evt}: ${filepath}`);
-	queueCompile(filepath)
+	if(evt === 'add') {
+		console.log(`${evt}: ${filepath}`);
+		queueCompile(filepath)
+	}
 });
 chokidar.watch('./static/**/*.*', {
 	persistent: true

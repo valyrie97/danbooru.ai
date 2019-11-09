@@ -10,6 +10,8 @@ const {copy,
 	compile} = require('./compiler.js')
 const glob = require('glob');
 
+if(!fs.existsSync('./credentials.js')) fs.writeFileSync('./credentials.js', 'module.exports = {};')
+
 glob('./src/**/*.js', (err, files) => {
 	files.map(filepath => {
 		console.log(`${filepath}`);
@@ -17,6 +19,13 @@ glob('./src/**/*.js', (err, files) => {
 	})
 })
 glob('./static/**/*.*', (err, files) => {
+	files.map(filepath => {
+		console.log(`${filepath}`);
+		copy(filepath)
+	})
+})
+// allow non dot files to be coppied in netlify
+glob('./static/**/*', (err, files) => {
 	files.map(filepath => {
 		console.log(`${filepath}`);
 		copy(filepath)

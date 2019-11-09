@@ -1,5 +1,5 @@
 import {LitElement, html} from 'lit-element';
-const Danbooru = require('danbooru');
+import booru from '../danbooru.js';
 
 class Gallery extends LitElement {
 	constructor(...args) {
@@ -107,11 +107,7 @@ censored: ${this.censored(post.tag_string)}
 		this.posts = [];
 		this.loading = true;
 		const query = this.query;
-		let booru;
-		if(!this.login || !this.api_key) return;
-		if(this.login && this.api_key)
-			booru = new Danbooru(`https://${this.login}:${this.api_key}@danbooru.donmai.us`);
-		else booru = new Danbooru();
+
 		let opt = {
 			tags: this.query || "rating:safe",
 			limit: 200

@@ -10,20 +10,6 @@ class Swiper extends LitElement {
 		}
 	}
 
-	updated() {
-		// console.log(this.post);
-		// console.log(this.post.tag_string);
-		console.log(this.post.file_url);
-		// console.log(this.censored(this.post.tag_string))
-	}
-
-	
-	censored(tag_string) {
-		return (tag_string.indexOf('loli') > -1) ||
-					 (tag_string.indexOf('shota') > -1) ||
-					 (tag_string.indexOf('toddlercon') > -1);
-	}
-
 	render() {
 		return html`
 		

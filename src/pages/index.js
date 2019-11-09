@@ -1,8 +1,7 @@
 import $ from 'jquery';
-import credentials from './../../credentials.js';
 const Danbooru = require('danbooru');
-let post;
 let booru;
+import credentials from './../../credentials.js';
 if(credentials && credentials.login) {
 	booru = new Danbooru(`https://${credentials.login}:${credentials.api_key}@danbooru.donmai.us`);
 } else {

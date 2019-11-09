@@ -10,16 +10,46 @@ class Swiper extends LitElement {
 		}
 	}
 
+	updated() {
+		// console.log(this.post);
+		// console.log(this.post.tag_string);
+		console.log(this.post.file_url);
+		// console.log(this.censored(this.post.tag_string))
+	}
+
+	
+	censored(tag_string) {
+		return (tag_string.indexOf('loli') > -1) ||
+					 (tag_string.indexOf('shota') > -1) ||
+					 (tag_string.indexOf('toddlercon') > -1);
+	}
+
 	render() {
 		return html`
 		
 		<style>
-
-.main {
-  background: url(${this.post ? this.post.file_url : ''});
+.main.alt {
+	${this.post ? `background: url(${this.post.preview_file_url});` : ''});
   background-repeat: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+	background-position: center;
+}
+.main.bigalt {
+	${this.post ? `background: url(${this.post.large_file_url});` : ''});
+  background-repeat: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+	background-position: center;
+}
+.main {
+	${this.post ? `background: url(${this.post.file_url});` : ''});
   height: 100vh;
   width: 100vw;
+	position:absolute;
+	top: 0px;
+	left: 0px;
+  background-repeat: none;
   background-repeat: no-repeat;
   background-size: contain;
 	background-position: center;
@@ -74,28 +104,37 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 		
 		
 <div>
+  <div class="main alt noselect"></div>
   <div class="main noselect"></div>
+  <div class="main bigalt noselect"></div>
   <div class="buttons noselect">
     <div @click=${this.next.bind(this)} class="button noselect">❌</div>
-    <div @click=${this.love.bind(this)} class="button noselect">💙</div>
+    <div @click=${this.reload.bind(this)} class="button noselect">💙</div>
     <div @click=${this.like.bind(this)} class="button noselect">❤️</div>
   </div>
 </div>
 		`;
 	}
 
+	async reload() {
+		const post = this.post;
+		this.post = {};
+		await new Promise (res => setTimeout(res, 500));
+		this.post = post;
+	}
+
 	next() {
-		console.log('next')
+		// console.log('next')
 		this.dispatchEvent(new CustomEvent('next', {post: this.post || null}));
 	}
 
 	like() {
-		console.log('like')
+		// console.log('like')
 		this.dispatchEvent(new CustomEvent('like', {post: this.post || null}));
 	}
 
 	love() {
-		console.log('love')
+		// console.log('love')
 		this.dispatchEvent(new CustomEvent('love', {post: this.post || null}));
 	}
 }
